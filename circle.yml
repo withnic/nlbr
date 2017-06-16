@@ -1,0 +1,12 @@
+machine:
+  timezone: Asia/Tokyo
+  environment:
+    GOROOT: ""
+    PATH: "/usr/local/go/bin:/usr/local/go_workspace/bin:~/.go_workspace/bin:${PATH}"
+    GOPATH: "${HOME}/.go_workspace:/usr/local/go_workspace:${HOME}/.go_project"
+
+test:
+  pre:
+    - go vet ./...
+  override:
+    - go test -v -race ./...
